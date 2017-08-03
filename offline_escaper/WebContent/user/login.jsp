@@ -3,20 +3,18 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="common.DBConn2"%>
-<%@ page import="dto.UserInfo"%>
+<%@ page import="dto.RoomInfo"%>
 <link rel = "stylesheet"  href="<%=rootPath %>/ui/signin.css"/>
 <body>
  <div class="container">
       <form class="form-signin" action="/user/login_ok.jsp">
-        <h2 class="form-signin-heading">로그인</h2>
+        <h2 align = "center" class="form-signin-heading">로그인</h2>
         <label for="inputEmail" class="sr-only">ID</label>
         <input type="text" id ="id" name="id" class="form-control" placeholder="아이디" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id ="pwd" name="pwd" class="form-control" placeholder="비밀번호" required>
         <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 아이디 저장
-          </label>
+    
         </div>
         <button type = "button" id = "btn2" class="btn btn-lg btn-primary btn-block" type="button" >로그인</button>
     

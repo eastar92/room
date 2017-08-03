@@ -9,29 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<%!
-public void printStr(String str){
-	System.out.println("adsfadfs");
-}
-%>
+
 <%
 
-	String userId = (String) session.getAttribute("userid");
+	String userId = (String) session.getAttribute("id");
 	String userName = "";
-	int age = 0;
-	String address = "";
-	String hp1 = "";
-	String hp2 = "";
-	String hp3 = "";
-
+	
 	boolean login = false;
 	if (userId != null) {
-		userName = (String) session.getAttribute("username");
-		age = (int) session.getAttribute("age");
-		address = (String) session.getAttribute("address");
-		hp1 = (String) session.getAttribute("hp1");
-		hp2 = (String) session.getAttribute("hp2");
-		hp3 = (String) session.getAttribute("hp3");
+		userName = (String) session.getAttribute("name");
 		login = true;
 	}
 	String rootPath = request.getContextPath();
@@ -86,11 +72,13 @@ function doMovePage(pageId){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/main.jsp">IOT Study</a>
+          <a class="navbar-brand" href="/main.jsp">방탈꾼들</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/board/board_select.jsp">게시판가기</a></li>
+            <li><a href="/board/board_thema.jsp">테마 정보</a></li>
+            <!-- <li><a href="/board/board_select.jsp">방탈출 지도</a></li> -->
+            <li><a href="/board/board_select.jsp">방탈출 기록</a></li>
             <li><a href="/user/user_info.jsp">유저정보가기</a></li>
             <li><a href="/role/role_select.jsp">권한정보가기</a></li>
             <li><a href="/user/logout_ok.jsp"><%=loginStr%></a></li>

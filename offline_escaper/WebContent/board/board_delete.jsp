@@ -3,7 +3,7 @@
 <%@ include file="/common/header.jsp"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="common.DBConn2"%>
-<%@ page import="dto.UserInfo"%>
+<%@ page import="dto.RoomInfo"%>
 
 <%
 	String biNum = request.getParameter("binum");

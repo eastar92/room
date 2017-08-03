@@ -17,11 +17,14 @@ public class BoardServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resq) throws IOException, ServletException {
 		req.setCharacterEncoding("UTF-8");
-
-		String name1 = req.getParameter("title");
-		String pwd1 = req.getParameter("content");
-		String writer = req.getParameter("writer");
-		System.out.println(name1 + "," + pwd1 + "," + writer);
+		String esday = req.getParameter("esday");
+		String num = req.getParameter("num");
+		String room1 = req.getParameter("room1");
+		String room2 = req.getParameter("room2");
+		String escapes = req.getParameter("escapes");
+		String withwho = req.getParameter("withwho");
+		
+		System.out.println(esday + "," + num + "," + room1+ "," + room2+ "," + escapes+ "," + withwho);
 		String command = req.getParameter("command");
 		if (command == null) {
 			return;
@@ -30,9 +33,12 @@ public class BoardServlet extends HttpServlet {
 
 		if (command.equals("SIGNIN")) {
 			HashMap hm = new HashMap();
-			hm.put("title", name1);
-			hm.put("content", pwd1);
-			hm.put("writer", writer);
+			hm.put("esday", esday);
+			hm.put("num", num);
+			hm.put("room1", room1);
+			hm.put("room2", room2);
+			hm.put("escapes", escapes);
+			hm.put("withwho", withwho);
 
 			if (bs.insertUser(hm)) {
 				doProcess(resq, "저장 잘 됨");
@@ -41,9 +47,9 @@ public class BoardServlet extends HttpServlet {
 			}
 
 		} else if (command.equals("DELETE")) {
-			String user_num = req.getParameter("writer");
-			System.out.println("삭제할 번호 : " + writer);
-			if (bs.deleteUser(writer)) {
+			String user_num = req.getParameter("num");
+			System.out.println("삭제할 번호 : " + num);
+			if (bs.deleteUser(num)) {
 				doProcess(resq, "삭제됨");
 			} else {
 				doProcess(resq, "삭제 안됨");
@@ -51,8 +57,8 @@ public class BoardServlet extends HttpServlet {
 
 		} else if (command.equals("UPDATE")) {
 
-			String user_num = req.getParameter("user_num");
-			System.out.println("업데이트 할 번호 : " + user_num);
+			String user_num = req.getParameter("num");
+			System.out.println("업데이트 할 번호 : " + num);
 
 			if (bs.updateUser(user_num)) {
 				doProcess(resq, "업데이트 됨");

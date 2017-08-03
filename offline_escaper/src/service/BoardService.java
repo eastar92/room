@@ -15,13 +15,16 @@ public class BoardService {
 
 		try {
 			con = DBConn2.getCon();
-			String sql = "insert into board(title, content, writer)";
-			sql += "values(?,?,?)";
+			String sql = "insert into escape_info(esday,num,room1,room2,escapes,withwho)";
+			sql += "values(?,?,?,?,?,?)";
 
 			ps = con.prepareStatement(sql);
-			ps.setString(1, hm.get("title"));
-			ps.setString(2, hm.get("content"));
-			ps.setString(3, hm.get("writer"));
+			ps.setString(1, hm.get("esday"));
+			ps.setString(2, hm.get("num"));
+			ps.setString(3, hm.get("room1"));
+			ps.setString(4, hm.get("room2"));
+			ps.setString(5, hm.get("escapes"));
+			ps.setString(6, hm.get("withwho"));
 			int result = ps.executeUpdate();
 			if (result == 1) {
 				con.commit();
@@ -45,7 +48,7 @@ public class BoardService {
 	public boolean deleteUser(String writer) {
 		try {
 			con = DBConn2.getCon();
-			String sql = ("delete from board where num ="+writer);
+			String sql = ("delete from escape_info where num ="+writer);
 			ps = con.prepareStatement(sql);
 			ps.setString(1, writer);
 

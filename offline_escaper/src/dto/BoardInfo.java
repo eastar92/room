@@ -1,48 +1,64 @@
+
 package dto;
 
 public class BoardInfo {
 	/*binum int(5) auto_increment primary key,
-bititle varchar(255) not null,
-bicontent text not null,
-bipwd varchar(100) not null
-creusr varchar(100) not null,
+esday varchar(300),
+num int,
+room1 varchar(300),
+room2 varchar(300),
+escapes varchar(2),
+withwho
 credat datetime not null*/
 	
-	private int binum;
-	private String bititle;
-	private String bicontent;
-	private String bipwd;
-	private String creusr;
+	private String esday;
+	private int num;
+	private String room1;
+	private String room2;
+	private String escapes;
+	private String withwho;
+	private String credat;
+
+	public String getEsday() {
+		return esday;
+	}
+	public void setEsday(String esday) {
+		this.esday = esday;
+	}
 	
-	public int getBinum() {
-		return binum;
+	public int getNum() {
+		return num;
 	}
-	public void setBinum(int binum) {
-		this.binum = binum;
+	public void setNum(int num) {
+		this.num = num;
 	}
-	public String getBititle() {
-		return bititle;
+	
+	public String getRoom1() {
+		return room1;
 	}
-	public void setBititle(String bititle) {
-		this.bititle = bititle;
+	public void setRoom1(String room1) {
+		this.room1 = room1;
 	}
-	public String getBicontent() {
-		return bicontent;
+	
+	public String getRoom2() {
+		return room2;
 	}
-	public void setBicontent(String bicontent) {
-		this.bicontent = bicontent;
+	public void setRoom2(String room2) {
+		this.room2 = room2;
 	}
-	public String getBipwd() {
-		return bipwd;
+	
+	public String getEscapes() {
+		return escapes;
 	}
-	public void setBipwd(String bipwd) {
-		this.bipwd = bipwd;
+	public void setEscapes(String escapes) {
+		this.escapes = escapes;
 	}
-	public String getCreusr() {
-		return creusr;
+	
+	public String getWithwho() {
+		return withwho;
 	}
-	public void setCreusr(String creusr) {
-		this.creusr = creusr;
+	public void setWithwho(String withwho) {
+		this.withwho = withwho;
 	}
 	public String getCredat() {
 		return credat;
@@ -50,5 +66,6 @@ credat datetime not null*/
 	public void setCredat(String credat) {
 		this.credat = credat;
 	}
-	private String credat;
 }
+
+

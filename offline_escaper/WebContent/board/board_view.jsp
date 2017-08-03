@@ -54,23 +54,23 @@ history.back();
 		<div class="starter-template">
 			<table align="center" border="3" class='table-condensed'>
 				<tr>
-					<td>번호 :</td>
+					<td>날짜 :</td>
 					<td><%=binum%></td>
 				</tr>
 				<tr>
-					<td>제목 :</td>
+					<td>횟수 :</td>
 					<td><%=bititle%></td>
 				</tr>
 				<tr>
-					<td>내용 :</td>
+					<td>지점 :</td>
 					<td><%=bicontent%></td>
 				</tr>
 				<tr>
-					<td>작성자 :</td>
+					<td>방 :</td>
 					<td><%=creusr%></td>
 				</tr>
 				<tr>
-					<td>작성일자 :</td>
+					<td>탈출여부 :</td>
 					<td><%=credat%></td>
 				</tr>
 				<tr>

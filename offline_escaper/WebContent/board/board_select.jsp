@@ -8,7 +8,7 @@
 <body>
 
  <script>
- function goBoard(biNum,param2){
+ function goBoard(biNum){
 	 location.href = "<%=rootPath%>/board/board_view.jsp?binum="+biNum;
  }
  </script>
@@ -20,24 +20,28 @@
 		BoardInfo bi = new BoardInfo();
 		try {
 			con = DBConn2.getCon();
-			String sql = "select binum, bititle, bicontent, bipwd, creusr,credat from board_info";
+			String sql = "select esday,num,room1,room2,escapes,withwho,credat from escape_info";
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
 			String tableStr = "<table border = '1' class='table table-striped'>";
 			tableStr += "<tr align='center' class='info'>";
-			tableStr += "<td >번호</td>";
-			tableStr += "<td>제목</td>";
-			tableStr += "<td>비밀번호</td>";
-			tableStr += "<td>작성자</td>";
-			tableStr += "<td>작성일자</td>";
+			tableStr += "<td>날짜</td>";
+			tableStr += "<td>횟수</td>";
+			tableStr += "<td>지점</td>";
+			tableStr += "<td>방 이름</td>";
+			tableStr += "<td>탈출 여부</td>";
+			tableStr += "<td>함께한 사람</td>";
+			tableStr += "<td>작성 일자</td>";
 			tableStr += "</tr>";
 			while (rs.next()) {
 				tableStr += "<tr align='center'>";
-				tableStr += "<td>" + rs.getInt("binum") + "</td>";
-				tableStr += "<td><a href = '#javascript' onclick = 'goBoard(" + rs.getInt("binum")+")'>"+rs.getString("bititle") + "</a></td>";
-				tableStr += "<td>" + rs.getString("bipwd") + "</td>";
-				tableStr += "<td>" + rs.getString("creusr") + "</td>";
+				tableStr += "<td>" + rs.getString("esday") + "</td>";
+				tableStr += "<td>" + rs.getInt("num") + "</td>";
+				tableStr += "<td>" + rs.getString("room1") + "</td>";
+				tableStr += "<td>" + rs.getString("room2") + "</td>";
+				tableStr += "<td>" + rs.getString("escapes") + "</td>";
+				tableStr += "<td>" + rs.getString("withwho") + "</td>";
 				tableStr += "<td>" + rs.getString("credat") + "</td>";
 				tableStr += "</tr>";
 			}
