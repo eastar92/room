@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+	function checkValue() {
+		var titleObj = document.getElementById("title");
+		if (titleObj.value.trim() == "") {
+			alert("제목 입력 안해! 죽어!");
+			return false;
+		}
+		var contectObj = document.getElementById("content");
+		if (contectObj.value.trim() == "") {
+			alert("내용 입력 안해! 죽어!");
+			return false;
+		}
+		var userNumObj = document.getElementById("writer");
+		var userNum = parseInt(userNumObj.value);
+		if (isNaN(userNum)) {
+			alert("숫자 입력하라고!");
+			return false;
+		}
+		return true;
+	}
+</script>
+
+<body>
+	<form method="get" action="*.board" onsubmit="return checkValue()">
+	
+		제목: <input type="text" name="title" id="title" /><br /> 내용:
+		<textarea name="content" id="content"></textarea>
+		<br /> 글쓴이: <input type="text" name="writer" id="writer" /><br />
+		<input type="submit" value="글쓰기" />
+
+<!--<input type = "hidden" name = "command" id = "command" value = "SIGNIN"/>-->
+  <input type = "hidden" name = "command" id = "command" value = "DELETE"/>
+<!--<input type = "hidden" name = "command" id = "command" value = "UPDATE"/>-->
+	</form>
+
+</body>
+</html>
