@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.mastfoot {
+   width: 600px;
+    position: fixed;
+    bottom: 0;
+    left: 50%; 
+  text-align: center;
+    margin-left: -300px;
+}
