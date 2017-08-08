@@ -19,6 +19,8 @@ credat datetime not null*/
 	private String withwho;
 	private String credat;
 
+	private String pwd;
+
 	public String getEsday() {
 		return esday;
 	}
@@ -65,6 +67,14 @@ credat datetime not null*/
 	}
 	public void setCredat(String credat) {
 		this.credat = credat;
+	}
+	
+	
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd =pwd;
 	}
 }
 

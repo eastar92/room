@@ -4,12 +4,13 @@
 <%@ page import="java.sql.*"%>
 <%@ page import="common.DBConn2"%>
 <%@ page import="dto.RoomInfo"%>
+<%@ page import="dto.BoardInfo"%>
 
 <%
-	String biNum = request.getParameter("binum");
-	String biPwd = request.getParameter("bipwd");
-	String sql = "delete from board_info";
-	sql += " where binum=? and bipwd=?";
+	String biNum = request.getParameter("num");
+	String biPwd = request.getParameter("pwd");
+	String sql = "delete from escape_info";
+	sql += " where num=? and pwd=?";
 	
 	Connection con = null;
 	PreparedStatement ps = null;

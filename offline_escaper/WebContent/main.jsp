@@ -4,8 +4,8 @@
 
     <div class="container">
       <div class="starter-template">
-        <h1>메인 화면</h1>
-        <p class="lead"><%=rootPath%>이것은 메인 화면입니다.</p>
+        <h1>방 탈 꾼 들</h1>
+        <p class="lead"><%=rootPath%><%=userName%>님 환영합니다.</p>
       </div>
     </div><!-- /.container -->
 <%@ include file ="/common/bottom.jsp"%>

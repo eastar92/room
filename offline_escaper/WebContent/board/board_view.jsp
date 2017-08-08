@@ -7,37 +7,40 @@
 <body>
 
 	<%
-		int pBinum = Integer.parseInt(request.getParameter("binum"));
+		int pNum = Integer.parseInt(request.getParameter("num"));
 		Connection con = null;
 		PreparedStatement ps = null;
-		int binum = 0;
-		String bititle = "";
-		String bicontent = "";
-		String bipwd = "";
-		String creusr = "";
+		int num = 0;
+		String esday = "";
+		String room1 = "";
+		String room2 = "";
+		String escapes = "";
+		String withwho = "";
 		String credat = "";
 		try {
 			con = DBConn2.getCon();
-			String sql = "select binum,bititle,bicontent,bipwd,creusr,credat from board_info where binum=?";
+			String sql = "select esday,num,room1,room2,escapes,withwho,credat from escape_info where num=?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, pBinum);
+			ps.setInt(1, pNum);
 			ResultSet rs = ps.executeQuery();
 			rs.last();
 			int rowCnt = rs.getRow();
 			if (rowCnt == 0) {
 	%>
 	<script>
-alert("<%=pBinum%>번 게시물은 없습니다.")
+alert("<%=pNum%>번 게시물은 없습니다.")
 history.back();
 </script>
 	<%
 		}
 			rs.beforeFirst();
 			while (rs.next()) {
-				binum = rs.getInt("binum");
-				bititle = rs.getString("bititle");
-				bicontent = rs.getString("bicontent");
-				creusr = rs.getString("creusr");
+				num = rs.getInt("num");
+				esday = rs.getString("esday");
+				room1 = rs.getString("room1");
+				room2 = rs.getString("room2");
+				escapes = rs.getString("escapes");
+				withwho = rs.getString("withwho");
 				credat = rs.getString("credat");
 			}
 		} catch (Exception e) {
@@ -55,22 +58,30 @@ history.back();
 			<table align="center" border="3" class='table-condensed'>
 				<tr>
 					<td>날짜 :</td>
-					<td><%=binum%></td>
+					<td><%=esday%></td>
 				</tr>
 				<tr>
 					<td>횟수 :</td>
-					<td><%=bititle%></td>
+					<td><%=num%></td>
 				</tr>
 				<tr>
 					<td>지점 :</td>
-					<td><%=bicontent%></td>
+					<td><%=room1%></td>
 				</tr>
 				<tr>
-					<td>방 :</td>
-					<td><%=creusr%></td>
+					<td>방이름 :</td>
+					<td><%=room2%></td>
 				</tr>
 				<tr>
 					<td>탈출여부 :</td>
+					<td><%=escapes%></td>
+				</tr>
+					<tr>
+					<td>함께한 사람 :</td>
+					<td><%=withwho%></td>
+				</tr>
+				<tr>
+					<td>작성일자  :</td>
 					<td><%=credat%></td>
 				</tr>
 				<tr>
@@ -87,11 +98,11 @@ history.back();
 	<script>
 function deleteBoard(){
 	var bipwd = document.getElementById("bipwd").value;
-	location.href="<%=rootPath%>/board/board_delete.jsp?binum=<%=binum%>&bipwd=" +bipwd;
+	location.href="<%=rootPath%>/board/board_delete.jsp?binum=<%=num%>&bipwd=" +bipwd;
 }
 function modifyBoard(){
 	var bipwd = document.getElementById("bipwd").value;
-	location.href="<%=rootPath%>/board/board_update.jsp?binum=<%=binum%>&bipwd="	+ bipwd;
+	location.href="<%=rootPath%>/board/board_update.jsp?binum=<%=num%>&bipwd="+ bipwd;
 	}
 	</script>
 </body>
